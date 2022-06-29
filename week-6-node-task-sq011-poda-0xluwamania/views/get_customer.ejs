@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./header.ejs') %>
+  <title>NODE WEEK 6 CRM </title>
+<body>
+  <%- include('./navbar.ejs') %>
+  <div class="container-fluid">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Delete Customer</th>
+                <th scope="col">Update Customer</th>
+                <th scope="col">Get Customer</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% if (data){ %>
+                <% for(let i = 0; i < data.length; i++){%>
+                    <tr>
+                        <td><%= data[i].fullname %></td>
+                        <td><%= data[i].email %></td>
+                        <td><%= data[i].gender %></td>
+                        <td><%= data[i].phone %></td>
+                        <td><%= data[i].address %></td>
+                        <td><%= data[i].notes %></td>
+                        <td><a  href="/users/customer/delete/<%= data[i].email %>"> Delete </a></td>
+                        <td><a  href="/users/customer/update/<%= data[i].email %>"> Update </a></td>
+                        <td><a  href="/users/customer/<%= data[i].email %>"> Select </a></td>
+                    </tr>
+                <% } %>
+            <% } %>
+            </tbody>
+          </table>
+          <div>
+            <a class="btn btn-outline-primary" href="/users/createCustomer">Add Customer</a>
+            <a class="btn btn-outline-secondary" href="/users/updateCustomer">Update Customer</a>
+          </div>
+
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+  
+ 
+
+
+
+  <%- include('./footer.ejs') %>
+</body>
+</html>
+

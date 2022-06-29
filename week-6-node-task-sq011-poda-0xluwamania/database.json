@@ -1,0 +1,12 @@
+[
+
+    {
+      "fullname": "john doe",
+      "email": "john@example.com", 
+      "gender":"m",
+      "phone":"+2347085647535",
+      "address":"1, rantech stop, ",
+      "notes":"This Customer is owing 10k" 
+    }
+   
+   ]

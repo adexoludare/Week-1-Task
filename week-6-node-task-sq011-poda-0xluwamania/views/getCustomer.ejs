@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./header.ejs') %>
+  <title>NODE WEEK 6 CRM</title>
+<body>
+  <%- include('./navbar.ejs') %>
+  <div class="container-fluid">
+    <div>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Address</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Delete Customer</th>
+                <th scope="col">Update Customer</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+             <% if (data){ %>
+                    <tr>
+                        <td><%= data.fullname %></td>
+                        <td><%= data.email %></td>
+                        <td><%= data.gender %></td>
+                        <td><%= data.phone %></td>
+                        <td><%= data.address %></td>
+                        <td><%= data.notes %></td>
+                        <td>
+                            <form class="form_container" method="post" action="/users/deleteCustomer/<%= data.email %>" enctype="application/x-www-form-urlencoded">
+                                <div class="form-group mb-3">
+                                    <div class="text-center">
+                                      <input type="submit" class="btn btn-primary" id="submit" value="Update Customer" >
+                                    </div>
+                                  </div>
+                            </form>
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-primary" id="update" value="Update Customer" >
+                        </td>    
+                    </tr>
+            <% } %> 
+            </tbody>
+          </table>
+         </div>
+
+
+          <div class="updateForm show">
+            <div class="col text-center py-3">
+              <h1>Update Customer </h1>
+            </div>
+            <div class="row g-6">
+              <div class="col-6 offset-3 border-secondary shadow py-3 px-5 rounded">
+                <form class="form_container" method="post" action="/users/updateCustomer/<%= data.email %>" enctype="application/x-www-form-urlencoded">
+                  <div class="form-group mb-1">
+                    <label for="name" class="form-label"></label>
+                    <div class="">
+                      <input type="name" class="form-control" id="name" placeholder="<%= data.fullname %>" name="fullname">
+                    </div>
+                  </div>
+                  <div class="form-group mb-1">
+                    <label for="colFormLabel" class="form-label"></label>
+                    <div class="">
+                      <input type="email" class="form-control" id="colFormLabel" placeholder="<%= data.email %>" name="email">
+                    </div>
+                  </div>
+                  <div class="form-group mb-1">
+                    <label for="gender" class="form-label"></label>
+                    <div class="">
+                      <input type="text" class="form-control" id="gender" placeholder="<%= data.gender %>" name="gender">
+                    </div>
+                  </div>
+                  <div class="form-group mb-1">
+                    <label for="phone" class="form-label"></label>
+                    <div class="">
+                      <input type="text" class="form-control" id="phone" placeholder="<%= data.phone %>" name="phone">
+                    </div>
+                  </div>
+                  <div class="form-group mb-1">
+                    <label for="address" class="form-label"></label>
+                    <div class="">
+                      <input type="text" class="form-control" id="address" placeholder="<%= data.address %>" name="address">
+                    </div>
+                  </div>
+             
+                  <div class="form-group mb-5">
+                    <label for="notes" class="form-label"></label>
+                    <div class="">
+                      <textarea type="text" class="form-control" id="notes" placeholder="<%= data.notes %>" name="notes"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group mb-3">
+                    <div class="text-center">
+                      <input type="submit" class="btn btn-primary" id="submit" value="Update Customer" >
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+  
+ 
+
+
+
+  <%- include('./footer.ejs') %>
+</body>
+</html>
+

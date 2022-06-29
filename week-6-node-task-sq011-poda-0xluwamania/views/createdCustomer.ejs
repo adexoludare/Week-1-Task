@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./header.ejs') %>
+  <title>NODE WEEK 6 CRM</title>
+<body>
+  <%- include('./navbar.ejs') %>
+  <div class="container-fluid">
+    <div class="result col-6 offset-3 border-secondary shadow py-3 px-5 rounded">
+        <h2>Customer Created</h2>
+        <h3>Fullname: <%= data.fullname %> </h3>
+        <h3>Email: <%= data.email %></h3>
+        <h3>Gender: <%= data.gender %></h3>
+        <h3>Phone: <%= data.phone %></h3>
+        <h3>Address: <%= data.address %></h3>
+        <h3>Notes: <%= data.notes %></h3>
+    </div>
+  </div>
+  <%- include('./footer.ejs') %>
+</body>
+</html>
